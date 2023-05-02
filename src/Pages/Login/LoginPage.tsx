@@ -1,11 +1,31 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./Style.scss";
 import logo from "../../assets/Union.png";
 import banner from "../../assets/lendsqr.png";
 import welcomImage from "../../assets/pablo-sign-in 1.png";
 
 
+
 const LoginPage = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const [inputError, setInputError] = useState("")
+
+    const handleSubmit= (e) => {
+      e.preventDefault();
+      if (!email || !password){
+        setInputError('This Field is required')
+      }else if(email !== 'oshinbolubrian@gmail.com'){
+        setInputError('Use the demo email: oshinbolubrian@gmail.com and any password');
+      }else if(email === 'oshinbolubrian@gmail.com'){
+      navigate("/dashboard");
+      }
+    }
+  
     return(
         <div className="login-page">
       <div className="container">
@@ -27,12 +47,28 @@ const LoginPage = () => {
                     <h1>Welcome ! </h1>
                     <h2>Enter Details to login</h2>
                </div>
-                <form className="login-form">
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <p className='error'>{inputError}</p>
                     {/* Enter Email */}
-                    <input type="text" id="email" placeholder="Email" />
+                    <input 
+                      className= {(inputError && !email) ? 'border-red' : '' }
+                      type="text" 
+                      id="email" 
+                      placeholder="Email" 
+                      value={email}
+                      onChange={(e)=>setEmail(e.target.value)}
+                      />
 
                     {/* Enter Password */}
-                    <input type="password" id="email" placeholder="Password" />
+                    <input 
+                      className= {(inputError && !password) ? 'border-red' : '' }
+                      type="password" 
+                      id="email" 
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e)=>setPassword(e.target.value)}
+                      />
+
                     <p>Forget Password</p>
 
                     {/* Login */}
@@ -49,4 +85,4 @@ const LoginPage = () => {
 }
 
 
-export default LoginPage
+export default LoginPage;

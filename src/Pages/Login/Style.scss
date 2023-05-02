@@ -62,6 +62,9 @@
         .login-form{
           display: flex;
           flex-direction: column;
+          p.error{
+            color: red;
+          }
           p{
             color: #39CDCC;
             cursor: pointer;
@@ -74,13 +77,22 @@
           width: 100%;
           padding: 12px 20px;
           margin: 8px 0;
-          box-sizing: border-box;
+          // box-sizing: border-box;
           border: 2px solid #39CDCC;
-          border-radius: 5px;
+          border-radius: 5px ;
+          }
+
+          input.border-red{
+            border-color: red;
           }
 
           input:hover{
-            border: 3px solid #39CDCC;
+            border: 2px solid #39CDCC;
+          }
+
+          input:focus{
+            box-shadow: 0px 0px 2px 3px #39CDCC;
+            border-color: #39CDCC;
           }
 
           button {
@@ -168,6 +180,9 @@
               color: #39CDCC;
               cursor: pointer;
             }
+            p.error{
+              color: red;
+            }
             input{
               margin: 2em;
             }
@@ -179,6 +194,10 @@
             box-sizing: border-box;
             border: 2px solid #39CDCC;
             border-radius: 5px;
+            }
+
+            input.border-red{
+              border-color: red;
             }
   
             input:hover{
