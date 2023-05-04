@@ -124,9 +124,23 @@
         box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
         border-radius: 4px;
 
-        .table-head{
-            display: flex;
-            justify-content: space-evenly;
+        .table{
+            font-size: 12px;
+            font-family: Rajdhani, sans-serif;
+            // justify-content: space-evenly;
+            table{
+                width: 100%;
+                
+                color: #545F7D;
+                // display: flex;
+                // justify-content: space-evenly;
+                th{
+                    text-align: left;
+                }
+                td{
+                    font-size: 12px;
+                }
+            }
             h4{
             
             }
